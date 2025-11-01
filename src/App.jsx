@@ -7,6 +7,11 @@ import Post from './components/Post';
 function App() {
   const [count, setCount] = useState(0)
 
+  //rendering logic ------------------------------
+  
+  //initialize post instance 
+
+
   return (
     <>
       <div>
@@ -22,7 +27,7 @@ function App() {
           count is {count}
         </button>
       </div>
-      <Post/>
+      <Post title="title text" body="body message"/>
     </>
   )
 }

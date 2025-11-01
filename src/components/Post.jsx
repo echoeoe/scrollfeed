@@ -1,10 +1,10 @@
 import './Post.css';
 
-function Post() {
+function Post({title, body}) {
     return (
-    <div class = "post">
-        <h2 class="title">title</h2>
-        <p class="body">body message</p>
+    <div className = "post">
+        <h2 className ="title">{title}</h2>
+        <p className ="body">{body}</p>
     </div>
     );
 }
