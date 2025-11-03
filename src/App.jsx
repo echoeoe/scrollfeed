@@ -5,18 +5,12 @@ import './App.css'
 import Post from './components/Post'; 
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  //rendering logic ------------------------------
-  
-  //initialize post instance 
-
+  const [count, setCount] = useState(0);
 
   return (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -28,6 +22,7 @@ function App() {
         </button>
       </div>
       <Post title="title text" body="body message"/>
+      <button id="loginBtn">...</button>
     </>
   )
 }
