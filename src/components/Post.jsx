@@ -1,7 +1,7 @@
 // import { useEffect, useState } from react;
 //import supabase from '../supabaseClient';
 
-function Post({title, body}) {
+export function Post({title, body}) {
 
     const postStyle = {
         backgroundColor: 'antiquewhite',
@@ -17,5 +17,3 @@ function Post({title, body}) {
     </div>
     );
 }
-
-export default Post;

@@ -1,4 +1,4 @@
-function Login(){
+export function Login(){
   
   return(
     <>
@@ -13,5 +13,3 @@ function Login(){
     </>
   );
 }
-
-export default Login;

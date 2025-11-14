@@ -1,4 +1,4 @@
-function Editor(){
+export function Editor(){
   
   return(
     <>
@@ -6,5 +6,3 @@ function Editor(){
     </>
   );
 }
-
-export default Editor;

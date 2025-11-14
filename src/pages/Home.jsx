@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Post from '../components/Post'; 
+import {Post} from '../components/Post'; 
 
-function Home(){
+export function Home(){
 
   return (
     <>
@@ -10,5 +10,3 @@ function Home(){
     </>
   );
 }
-
-export default Home;

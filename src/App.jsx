@@ -1,9 +1,9 @@
 import './App.css'
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Editor from './pages/Editor';
+import {Home} from './pages/Home';
+import {Login} from './pages/Login';
+import {Editor} from './pages/Editor';
 
-function App() {
+export function App() {
 
   return (
     <>
@@ -13,5 +13,3 @@ function App() {
     </>
   )
 }
-
-export default App
