@@ -12,8 +12,8 @@ export function Post({title, body}) {
 
     return (
     <div style = {postStyle} className = "post">
-        <h2 className ="title">title: {title}</h2>
-        <p className ="body">body: {body}</p>
+        <h2 className ="title">{title}</h2>
+        <p className ="body">{body}</p>
     </div>
     );
 }

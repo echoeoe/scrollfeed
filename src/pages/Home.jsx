@@ -3,10 +3,22 @@ import {Post} from '../components/Post';
 
 export function Home(){
 
+  const posts = [
+    {id: '1', title: 'Lorem ipsm', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
+    {id: '2', title: 'The Pumpkin Patch', body: 'test body 2 test body 2 test body 2 test body 2 test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2.'},
+    {id: '3', title: 'Trunk or Treating', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
+    {id: '3', title: 'Horse Riding', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'}
+  ];
+
   return (
-    <>
-      <Post title="the title" body="the body"/>
+    <div className = 'scrollfeed'>
+
+      {posts.map(post => (
+        <Post key = {post.id} title={post.title} body={post.body}/>
+      )
+    )}
+
       <button id="loginBtn">...</button>
-    </>
+    </div>
   );
 }
