@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import {Post} from '../components/Post'; 
-
-function handleClick(event){
-  event.preventDefault();
-  console.log('clicked');
-}
+import { useNavigate } from "react-router-dom"; 
 
 export function Home(){
+  
+  const navigate = useNavigate();
 
   const posts = [
     {id: '1', title: 'Lorem ipsm', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
@@ -22,8 +20,7 @@ export function Home(){
         <Post key = {post.id} title={post.title} body={post.body}/>
       )
     )}
-
-      <button id="loginBtn" onClick={handleClick}>...</button>
+      <button id="loginBtn" onClick={()=> navigate("/login")}>...</button>
     </div>
   );
 }
