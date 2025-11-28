@@ -1,6 +1,3 @@
-// import { useEffect, useState } from react;
-//import supabase from '../supabaseClient';
-
 export function Post({title, body}) {
 
     const postStyle = {

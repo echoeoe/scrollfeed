@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import {Post} from '../components/Post'; 
+import { useState } from 'react';
+import { Post } from '../components/Post'; 
 import { useNavigate } from "react-router-dom"; 
 
 export function Home(){
