@@ -6,12 +6,14 @@ export function Home(){
   
   const navigate = useNavigate();
 
-  const posts = [
+  const testPosts = [
     {id: '1', title: 'Lorem ipsm', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
     {id: '2', title: 'The Pumpkin Patch', body: 'test body 2 test body 2 test body 2 test body 2 test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2.'},
     {id: '3', title: 'Trunk or Treating', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
     {id: '4', title: 'Horse Riding', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'}
   ];
+
+  const [posts, setPosts] = useState(testPosts);
 
   return (
     <div className = 'scrollfeed'>
@@ -21,6 +23,7 @@ export function Home(){
       )
     )}
       <button id="loginBtn" onClick={()=> navigate("/login")}>...</button>
+
     </div>
   );
 }
