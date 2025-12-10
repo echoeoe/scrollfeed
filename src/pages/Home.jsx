@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Post } from '../components/Post'; 
 import { useNavigate } from "react-router-dom"; 
-// import { supabase } from '../utils/supabaseClient.js';
+import { supabase } from '../utils/supabaseClient.js';
 
 export function Home(){
   
