@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Post } from '../components/Post'; 
 import { useNavigate } from "react-router-dom"; 
 import { supabase } from '../utils/supabaseClient.js';
+import { useSupabaseFetch } from '../hooks/useSupabaseFetch.js';
 
 export function Home(){
   
@@ -15,6 +16,9 @@ export function Home(){
   ];
 
   const [posts, setPosts] = useState(testPosts);
+
+  //fetch from the posts db
+  useSupabaseFetch('posts')
 
   return (
     <div className = 'scrollfeed'>
