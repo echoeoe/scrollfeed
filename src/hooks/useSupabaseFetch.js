@@ -13,11 +13,14 @@ export function useSupabaseFetch(tableName){
     //side effect
     console.log('in useEffect side effect logic'); //test
     
-    //set states - prevent errors
+    //set states - prevent loading bug, reset error 
     setLoading(true);
     setError(null);
 
-    //fetch function 
+    //build query 
+    let query = supabase.from('posts').select();
+
+    //fetch data 
 
   }, [tableName]); //useEffect dependencies  
 }
