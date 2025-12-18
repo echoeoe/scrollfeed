@@ -12,6 +12,11 @@ export function useSupabaseFetch(tableName){
 
     //side effect
     console.log('in useEffect side effect logic'); //test
+    
+    //set states - prevent errors
+    setLoading(true);
+    setError(null);
+
     //fetch function 
 
   }, [tableName]); //useEffect dependencies  
