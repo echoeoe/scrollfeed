@@ -18,7 +18,7 @@ export function Home(){
   const [posts, setPosts] = useState(testPosts);
 
   //fetch from the posts db
-  useSupabaseFetch('posts')
+  useSupabaseFetch('posts');
 
   return (
     <div className = 'scrollfeed'>

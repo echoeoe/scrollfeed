@@ -8,4 +8,11 @@ export function useSupabaseFetch(tableName){
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  useEffect(()=>{
+
+    //side effect
+    console.log('in useEffect side effect logic'); //test
+    //fetch function 
+
+  }, [tableName]); //useEffect dependencies  
 }
