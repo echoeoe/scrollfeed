@@ -11,16 +11,21 @@ export function useSupabaseFetch(tableName){
   useEffect(()=>{
 
     //side effect
-    console.log('in useEffect side effect logic'); //test
-    
-    //set states - prevent loading bug, reset error 
-    setLoading(true);
-    setError(null);
+    async function fetchData(){ 
+      
+      //set states - prevent loading bug, reset error 
+      setLoading(true);
+      setError(null);
 
-    //build query 
-    let query = supabase.from('posts').select();
+      //build query 
+      let query = supabase.from('posts').select();
 
-    //fetch data 
+      //fetch data
+      const {data: fetchedData, fetchError: error} = await query;
+      console.log("fetched data", fetchedData);
+    }
+
+    fetchData(); 
 
   }, [tableName]); //useEffect dependencies  
 }
