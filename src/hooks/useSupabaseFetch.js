@@ -20,12 +20,21 @@ export function useSupabaseFetch(tableName){
       //build query 
       let query = supabase.from('posts').select();
 
-      //fetch data
-      const {data: fetchedData, fetchError: error} = await query;
-      console.log("fetched data", fetchedData);
+      // try catch around fetch 
+      try{
+        //fetch data
+        const {data: fetchedData, fetchError: error} = await query;
+        // console.log("fetched data", fetchedData);
+      }catch(err){
+        console.error("Supabase error:", err);
+        setError(err);
+      }
+      
     }
 
     fetchData(); 
 
   }, [tableName]); //useEffect dependencies  
+
+  return {data, loading, error};
 }
