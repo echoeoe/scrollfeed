@@ -15,10 +15,12 @@ export function Home(){
     {id: '4', title: 'Horse Riding', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'}
   ];
 
-  const [posts, setPosts] = useState(testPosts);
-
   //fetch from the posts db
-  useSupabaseFetch('posts');
+  const {data, loading, error} = useSupabaseFetch('posts');
+  console.log(data, loading, error);
+
+  //choose post info 
+  const [posts, setPosts] = useState(testPosts);
 
   return (
     <div className = 'scrollfeed'>
