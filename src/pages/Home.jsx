@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Post } from '../components/Post'; 
 import { useNavigate } from "react-router-dom"; 
 import { supabase } from '../utils/supabaseClient.js';
@@ -15,12 +15,18 @@ export function Home(){
     {id: '4', title: 'Horse Riding', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'}
   ];
 
-  //fetch from the posts db
-  const {data, loading, error} = useSupabaseFetch('posts');
-  console.log(data, loading, error);
-
   //choose post info 
   const [posts, setPosts] = useState(testPosts);
+
+  //fetch posts from db
+  const {data, loading, error} = useSupabaseFetch('posts');
+
+  //set post info  
+ useEffect(()=>{
+  if (!loading && data){
+    setPosts(data);
+  }
+ });
 
   return (
     <div className = 'scrollfeed'>
