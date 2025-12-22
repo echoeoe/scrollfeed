@@ -8,15 +8,15 @@ export function Home(){
   
   const navigate = useNavigate();
 
-  const testPosts = [
-    {id: '1', title: 'Lorem ipsm', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
-    {id: '2', title: 'The Pumpkin Patch', body: 'test body 2 test body 2 test body 2 test body 2 test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2.'},
-    {id: '3', title: 'Trunk or Treating', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
-    {id: '4', title: 'Horse Riding', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'}
-  ];
+  // const testPosts = [
+  //   {id: '1', title: 'Lorem ipsm', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
+  //   {id: '2', title: 'The Pumpkin Patch', body: 'test body 2 test body 2 test body 2 test body 2 test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2. test body 2 test body 2.'},
+  //   {id: '3', title: 'Trunk or Treating', body: 'test body 1 test body 1 test body 1 test body 1 test body 1'},
+  //   {id: '4', title: 'Horse Riding', body: '- These are local test posts - '}
+  // ];
 
   //choose post info 
-  const [posts, setPosts] = useState(testPosts);
+  const [posts, setPosts] = useState(null);
 
   //fetch posts from db
   const {data, loading, error} = useSupabaseFetch('posts');
@@ -31,10 +31,11 @@ export function Home(){
   return (
     <div className = 'scrollfeed'>
 
-      {posts.map(post => (
+      {posts? posts.map(post => (
         <Post key = {post.id} title={post.title} body={post.body}/>
       )
-    )}
+    ): <p>Loading...</p>}
+
       <button id="loginBtn" onClick={()=> navigate("/login")}>...</button>
 
     </div>
