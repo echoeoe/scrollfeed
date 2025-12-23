@@ -36,8 +36,6 @@ export function Home(){
       )
     ): <p>Loading...</p>}
 
-      <button id="loginBtn" onClick={()=> navigate("/login")}>...</button>
-
     </div>
   );
 }
