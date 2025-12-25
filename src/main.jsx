@@ -6,15 +6,18 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { Home } from './pages/Home.jsx'
 import { Login } from './pages/Login.jsx'
 import { Editor } from './pages/Editor.jsx'
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path = "login" element={<Login />} />
-        <Route path = "editor" element={<Editor />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path = "login" element={<Login />} />
+          <Route path = "editor" element={<Editor />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 )
