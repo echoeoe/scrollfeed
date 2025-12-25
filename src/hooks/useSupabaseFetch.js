@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export function useSupabaseFetch(tableName){
+export function useSupabaseFetch(tableName){ //custom hook 
 
   //state variables: data from table, loading boolean, error
   const [data, setData] = useState(null);
