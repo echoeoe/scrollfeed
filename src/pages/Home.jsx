@@ -15,18 +15,8 @@ export function Home(){
   //   {id: '4', title: 'Horse Riding', body: '- These are local test posts - '}
   // ];
 
-  //choose post info 
-  const [posts, setPosts] = useState(null);
-
   //fetch posts from db
-  const {data, loading, error} = useSupabaseFetch('posts');
-
-  //set post info  
- useEffect(()=>{
-  if (!loading && data){
-    setPosts(data);
-  }
- });
+  const {data: posts, loading, error} = useSupabaseFetch('posts');
 
   return (
     <div className = 'scrollfeed'>
