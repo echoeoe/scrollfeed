@@ -13,6 +13,9 @@ export const AuthProvider = ({ children }) => {
                 data: {session}, 
                 error
             } = await supabase.auth.getSession();
+
+            setUser(session?.user ?? null);
+            setLoading(false);
         }   
 
         loadSession();
