@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
                 if (error) throw error;
 
                 setUser(session?.user ?? null);
-                console.log(user, loading); //console
+                console.log(session?.user); //console
             }
             catch(err){
                 console.error("auth error:", err);
@@ -32,5 +32,7 @@ export const AuthProvider = ({ children }) => {
         loadSession();
     }, []);
     
-    return (<>{children}</>);
+    return (<AuthContext.Provider value = {{user, loading}}>
+        {children}
+        </AuthContext.Provider>);
 };
