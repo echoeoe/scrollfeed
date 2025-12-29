@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
                 if (error) throw error;
 
                 setUser(session?.user ?? null);
-                console.log(session?.user); //console
+                // console.log("user:", session?.user); //console
             }
             catch(err){
                 console.error("auth error:", err);
@@ -32,12 +32,16 @@ export const AuthProvider = ({ children }) => {
         loadSession();
     }, []);
     
-    return (<AuthContext.Provider value = {{user, loading}}>
+    return (<AuthContext.Provider value = {{user, loading, signIn}}>
         {children}
         </AuthContext.Provider>);
 };
 
-//auth action - sign in 
+//sign in method 
+const signIn = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({email, password});
+    if (error) throw error;
+}
 
 export const useAuth = () => {
     return useContext(AuthContext);
