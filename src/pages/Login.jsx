@@ -3,11 +3,11 @@ import { useEffect} from "react";
 
 export function Login(){
   
-  // const { user, loading } = useAuth();
+  const { user, loading, signIn } = useAuth();
 
-  // useEffect( ()=>{
-  //   console.log("auth:", user, loading);
-  // }, []);
+  useEffect( ()=>{
+    console.log("auth user, loading:", user, loading);
+  }, []);
 
   return(
     <>
@@ -18,7 +18,7 @@ export function Login(){
     <div>
       <input type="password" placeholder="password"></input>
     </div>
-      <button id='signin-btn'>Log In</button>
+      <button id='signin-btn' onClick={()=> signIn(email, password)}>Log In</button>
       <button id='signup-btn'>Sign Up</button>
     </>
   );

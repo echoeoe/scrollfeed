@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
         });
 
         return () => subscription.unsubscribe();
-        
+
     }, []);
     
     return (<AuthContext.Provider value = {{user, loading, signIn}}>
