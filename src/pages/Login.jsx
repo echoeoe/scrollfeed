@@ -1,9 +1,12 @@
 import { useAuth } from "../context/AuthContext";
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 
 export function Login(){
   
   const { user, loading, signIn } = useAuth();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect( ()=>{
     console.log("auth user, loading:", user, loading);
@@ -13,10 +16,10 @@ export function Login(){
     <>
     <h1>Login</h1>
     <div>
-      <input type="text" placeholder="username"></input>
+      <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
     </div>
     <div>
-      <input type="password" placeholder="password"></input>
+      <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
     </div>
       <button id='signin-btn' onClick={()=> signIn(email, password)}>Log In</button>
       <button id='signup-btn'>Sign Up</button>
