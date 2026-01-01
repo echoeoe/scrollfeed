@@ -7,10 +7,19 @@ export function Login(){
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [formError, setFormError] = useState(null);
 
   useEffect( ()=>{
     console.log("auth user, loading:", user, loading);
   }, []);
+
+  const handleSignIn = (email, password) =>{
+    if (!email || !password){
+      setFormError('Username and password must not be blank.');
+      return;
+    }
+    signIn(email, password);
+  }
 
   return(
     <>
@@ -21,8 +30,9 @@ export function Login(){
     <div>
       <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
     </div>
-      <button id='signin-btn' onClick={()=> signIn(email, password)}>Log In</button>
+      <button id='signin-btn' onClick={()=> handleSignIn(email, password)}>Log In</button>
       <button id='signup-btn'>Sign Up</button>
+    {formError && <p>{formError}</p>}
     </>
   );
 }

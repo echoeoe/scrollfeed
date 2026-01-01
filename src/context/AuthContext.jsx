@@ -39,17 +39,19 @@ export const AuthProvider = ({ children }) => {
         return () => subscription.unsubscribe();
 
     }, []);
+
+    //sign in method 
+    const signIn = async (email, password) => {
+
+        const { data, error } = await supabase.auth.signInWithPassword({email, password});
+
+        if (error) throw error;
+    }
     
     return (<AuthContext.Provider value = {{user, loading, signIn}}>
         {children}
         </AuthContext.Provider>);
 };
-
-//sign in method 
-const signIn = async (email, password) => {
-    const { data, error } = await supabase.auth.signInWithPassword({email, password});
-    if (error) throw error;
-}
 
 export const useAuth = () => {
     return useContext(AuthContext);
