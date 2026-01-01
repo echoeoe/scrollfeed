@@ -1,8 +1,10 @@
 import { useAuth } from "../context/AuthContext";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export function Login(){
   
+  const navigate = useNavigate();
   const { user, loading, signIn } = useAuth();
 
   const [email, setEmail] = useState('');
@@ -10,16 +12,22 @@ export function Login(){
   const [formError, setFormError] = useState(null);
 
   useEffect( ()=>{
-    console.log("auth user, loading:", user, loading);
+    console.log("auth user, loading:", user?.email, loading);
   }, []);
 
-  const handleSignIn = (email, password) =>{
+  const handleSignIn = async () =>{
     if (!email || !password){
       setFormError('Username and password must not be blank.');
       return;
     }
-    signIn(email, password);
-  }
+    try{
+      await signIn(email, password);
+      navigate('/editor'); //redirect to editor 
+    }
+    catch(err){
+      setFormError(err.message);
+    }
+  };
 
   return(
     <>
