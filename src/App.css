@@ -4,3 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
+
+.link-button{
+  text-decoration: underline;
+  color: lightblue;
+  background: none;
+  padding: 0;
+}
+
+#formError{
+  color: lightcoral;
+}

@@ -52,8 +52,11 @@ export function Login(){
       <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
     </div>
       <button id='signin-btn' onClick={()=> handleSignIn()}>Log In</button>
-      <button id='signup-btn' onClick={()=>handleSignUp()}>Sign Up</button>
-    {formError && <p>{formError}</p>}
+    <p>New user?{" "}
+      <button id='signup-btn' className="link-button" onClick={()=>handleSignUp()}>Sign Up</button>  
+    </p>
+
+    {formError && <p id="formError">{formError}</p>}
     </>
   );
 }
