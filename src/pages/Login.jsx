@@ -31,15 +31,14 @@ export function Login(){
 
   const handleSignUp = async () => {
 
-    //validate non-empty
+    //password requirements
     if (!email || !password){
       setFormError("Username and password must not be blank");
       return;
     }
-    else if (password.length < 12){
-      setFormError("Password must be at least 12 characters.");
+    else if (password.length < 12 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) ||!/[^\w\s]/.test(password)){
+      setFormError("Password must be at least 12 characters in length and contain at least one uppercase, lowercase, and special character.");
       return;
-
     }
   };
 
