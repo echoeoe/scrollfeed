@@ -29,6 +29,20 @@ export function Login(){
     }
   };
 
+  const handleSignUp = async () => {
+
+    //validate non-empty
+    if (!email || !password){
+      setFormError("Username and password must not be blank");
+      return;
+    }
+    else if (password.length < 12){
+      setFormError("Password must be at least 12 characters.");
+      return;
+
+    }
+  };
+
   return(
     <>
     <h1>Login</h1>
@@ -38,8 +52,8 @@ export function Login(){
     <div>
       <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
     </div>
-      <button id='signin-btn' onClick={()=> handleSignIn(email, password)}>Log In</button>
-      <button id='signup-btn'>Sign Up</button>
+      <button id='signin-btn' onClick={()=> handleSignIn()}>Log In</button>
+      <button id='signup-btn' onClick={()=>handleSignUp()}>Sign Up</button>
     {formError && <p>{formError}</p>}
     </>
   );
