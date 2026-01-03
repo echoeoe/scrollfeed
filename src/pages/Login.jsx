@@ -29,17 +29,8 @@ export function Login(){
     }
   };
 
-  const handleSignUp = async () => {
-
-    //password requirements
-    if (!email || !password){
-      setFormError("Username and password must not be blank");
-      return;
-    }
-    else if (password.length < 12 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) ||!/[^\w\s]/.test(password)){
-      setFormError("Password must be at least 12 characters in length and contain at least one uppercase, lowercase, and special character.");
-      return;
-    }
+  const signupRedirect = async () => { //redirect to signup 
+   navigate('/signup');
   };
 
   return(
@@ -53,10 +44,10 @@ export function Login(){
     </div>
       <button id='signin-btn' onClick={()=> handleSignIn()}>Log In</button>
     <p>New user?{" "}
-      <button id='signup-btn' className="link-button" onClick={()=>handleSignUp()}>Sign Up</button>  
+      <button id='signup-btn' className="link-button" onClick={()=>signupRedirect()}>Sign Up</button>  
     </p>
 
-    {formError && <p id="formError">{formError}</p>}
+    {formError && <p class="formError">{formError}</p>}
     </>
   );
 }
