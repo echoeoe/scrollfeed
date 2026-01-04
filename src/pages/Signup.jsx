@@ -9,6 +9,8 @@ export function Signup(){
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [formError, setFormError] = useState(null);
 
+    const { signUp } = useAuth();
+
     const handleSignUp = async () => {
         //password requirements
         if (!email || !password){
@@ -23,6 +25,9 @@ export function Signup(){
             setFormError("Passwords must match.");
             return;
         }
+        //let authprovider handle 
+        signUp(email, password);
+
     };
 
     return(<>

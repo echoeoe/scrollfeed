@@ -2,6 +2,10 @@
 
 This project is a demo React app for a local nonprofit organization. 
 
+## Goal
+Embedded feed allows web visitors to view posts, and nonprofit members to create, edit, and delete posts.
+
+## Tech Stack
 ### Frontend: 
 - HTML (content)
 - CSS (styling)
@@ -14,3 +18,8 @@ This project is a demo React app for a local nonprofit organization.
 ### Hosting / Deployment: 
 - Vercel (hosting the front end)
 
+## Architecture Diagram
+(coming soon)
+
+## Tradeoffs
+Priority maintainability over feature richness, minimize third-party dependencies. 

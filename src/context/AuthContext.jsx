@@ -47,8 +47,14 @@ export const AuthProvider = ({ children }) => {
 
         if (error) throw error;
     }
+
+    //sign up method
+    const signUp = async (email, password) => {
+        console.log("authprovider signup method called");
+        
+    }
     
-    return (<AuthContext.Provider value = {{user, loading, signIn}}>
+    return (<AuthContext.Provider value = {{user, loading, signIn, signUp}}>
         {children}
         </AuthContext.Provider>);
 };
