@@ -47,7 +47,7 @@ export function Login(){
       <button id='signup-btn' className="link-button" onClick={()=>signupRedirect()}>Sign Up</button>  
     </p>
 
-    {formError && <p class="formError">{formError}</p>}
+    {formError && <p class="errorMessage">{formError}</p>}
     </>
   );
 }

@@ -1,6 +1,10 @@
 # Scrolling Feed (Work in Progress)
 
-This project is a demo React app for a local nonprofit organization. 
+This project is a demo React app for a local nonprofit organization.  
+
+## Pages
+Home: https://lina-scrollfeed.vercel.app/  
+Login: https://lina-scrollfeed.vercel.app/login
 
 ## Goal
 Embedded feed allows web visitors to view posts, and nonprofit members to create, edit, and delete posts.

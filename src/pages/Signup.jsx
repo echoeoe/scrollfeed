@@ -9,7 +9,7 @@ export function Signup(){
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [formError, setFormError] = useState(null);
 
-    const { signUp } = useAuth();
+    const { signUp, signupError } = useAuth();
 
     const handleSignUp = async () => {
         //password requirements
@@ -36,6 +36,7 @@ export function Signup(){
     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/><br/>
     <input type="password" placeholder="confirm password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)}></input><br/><br/>
     <button onClick={()=>handleSignUp()}>sign up</button>
-    <p className="formError">{formError}</p>
+    <p className="errorMessage">{formError}</p>
+    <p className="errorMessage">{signupError}</p>
     </>);
 }

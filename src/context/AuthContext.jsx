@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true); 
+    const [signupError, setSignupError] = useState(null);
 
     useEffect(()=>{
         const loadSession = async () => {
@@ -50,11 +51,19 @@ export const AuthProvider = ({ children }) => {
 
     //sign up method
     const signUp = async (email, password) => {
-        console.log("authprovider signup method called");
-        
-    }
+        setSignupError(null);
+        const { data, error } = await supabase.auth.signUp({email, password});
+
+        if (error){
+            setSignupError(error.message);
+            return {success: false};
+        }
+
+        setUser(data.user?? null);
+        return { success: true };
+    };
     
-    return (<AuthContext.Provider value = {{user, loading, signIn, signUp}}>
+    return (<AuthContext.Provider value = {{user, loading, signIn, signUp, signupError}}>
         {children}
         </AuthContext.Provider>);
 };
