@@ -12,6 +12,8 @@ export function Signup(){
     const { signUp, signupError } = useAuth();
 
     const handleSignUp = async () => {
+        setFormError(null);
+        
         //password requirements
         if (!email || !password){
             setFormError("Username and password must not be blank.");
@@ -36,7 +38,6 @@ export function Signup(){
     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/><br/>
     <input type="password" placeholder="confirm password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)}></input><br/><br/>
     <button onClick={()=>handleSignUp()}>sign up</button>
-    <p className="errorMessage">{formError}</p>
-    <p className="errorMessage">{signupError}</p>
+    <p className="errorMessage">{formError? formError: signupError}</p>
     </>);
 }
