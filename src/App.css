@@ -12,6 +12,10 @@
   padding: 0;
 }
 
-.errorMessage{
+.redText{
   color: lightcoral;
+}
+
+.greenText{
+  color: greenyellow;
 }

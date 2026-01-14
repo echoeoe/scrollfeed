@@ -8,11 +8,13 @@ export function Signup(){
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [formError, setFormError] = useState(null);
+    const [successMsg, setSuccessMsg] = useState(null);
 
     const { signUp, signupError } = useAuth();
 
     const handleSignUp = async () => {
         setFormError(null);
+        setSuccessMsg(null);
         
         //password requirements
         if (!email || !password){
@@ -28,7 +30,10 @@ export function Signup(){
             return;
         }
         //let authprovider handle 
-        signUp(email, password);
+        const result = await signUp(email, password);
+        if (result.success){
+            setSuccessMsg("Successfully signed up. Please check your email to confirm your account.");
+        }
 
     };
 
@@ -38,6 +43,7 @@ export function Signup(){
     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input><br/><br/>
     <input type="password" placeholder="confirm password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)}></input><br/><br/>
     <button onClick={()=>handleSignUp()}>sign up</button>
-    <p className="errorMessage">{formError? formError: signupError}</p>
+    <p className="redText">{formError? formError: signupError}</p>
+    <p className="greenText">{successMsg}</p>
     </>);
 }
