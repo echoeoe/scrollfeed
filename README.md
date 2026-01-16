@@ -26,4 +26,4 @@ Embedded feed allows web visitors to view posts, and nonprofit members to create
 (coming soon)
 
 ## Tradeoffs
-Priority maintainability over feature richness, minimize third-party dependencies. 
+Prioritize maintainability over feature richness, minimize third-party dependencies. 
