@@ -31,6 +31,7 @@ export function Signup(){
         }
         //let authprovider handle 
         const result = await signUp(email, password);
+        // console.log(result);
         if (result.success){
             setSuccessMsg("Successfully signed up. Please check your email to confirm your account.");
         }
