@@ -33,7 +33,7 @@ export function Signup(){
         const result = await signUp(email, password);
         // console.log(result);
         if (result.success){
-            setSuccessMsg("Successfully signed up. Please check your email to confirm your account.");
+            setSuccessMsg("A confirmation email has been sent to your address.");
         }
 
     };

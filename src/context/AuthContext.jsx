@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
             return {success: false};
         }
 
-        setUser(data.user?? null);
+        setUser(data.user?? null); 
         return { success: true };
     };
     
