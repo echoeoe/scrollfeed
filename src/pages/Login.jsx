@@ -11,10 +11,6 @@ export function Login(){
   const [password, setPassword] = useState('');
   const [formError, setFormError] = useState(null);
 
-  useEffect( ()=>{
-    console.log("auth user, loading:", user?.email, loading);
-  }, []);
-
   const handleSignIn = async () =>{
     if (!email || !password){
       setFormError('Username and password must not be blank.');
@@ -29,6 +25,11 @@ export function Login(){
     }
   };
 
+  const handleReset = async () =>{
+    //redirect to reset 
+    console.log("reset clicked");
+  }
+
   const signupRedirect = async () => { //redirect to signup 
    navigate('/signup');
   };
@@ -42,9 +43,12 @@ export function Login(){
     <div>
       <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
     </div>
-      <button id='signin-btn' onClick={()=> handleSignIn()}>Log In</button>
+      <button onClick={()=> handleSignIn()}>Log In</button>
     <p>New user?{" "}
-      <button id='signup-btn' className="link-button" onClick={()=>signupRedirect()}>Sign Up</button>  
+      <button className="link-button" onClick={()=>signupRedirect()}>Sign Up</button>  
+    </p>
+    <p>Forgot password?{" "}
+      <button className="link-button" onClick={()=>handleReset()}>Reset</button>
     </p>
 
     {formError && <p className="redText">{formError}</p>}
