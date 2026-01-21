@@ -26,4 +26,7 @@ Embedded feed allows web visitors to view posts, and nonprofit members to create
 (coming soon)
 
 ## Tradeoffs
-Prioritize maintainability over feature richness, minimize third-party dependencies. 
+Prioritize maintainability over feature richness, minimize third-party dependencies.  
+
+## Notice
+This code may not be used to train AI models without explicit permission.
