@@ -8,6 +8,7 @@ import { Login } from './pages/Login.jsx';
 import { Editor } from './pages/Editor.jsx';
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { Signup } from './pages/Signup.jsx';
+import { Admin } from './pages/Admin.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <Route path = "login" element={<Login />} />
           <Route path = "editor" element={<Editor />} />
           <Route path = "signup" element={<Signup/>} />
+          <Route path = "admin" element={<Admin/>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
