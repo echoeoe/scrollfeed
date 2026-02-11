@@ -30,7 +30,12 @@ export const AuthProvider = ({ children }) => {
             }
         }   
 
-        loadSession();
+        //get user role with id 
+        const getRole = async() => {
+            const session = await loadSession();
+        }
+
+        getRole();
 
         //sync auth changes
         const {data: {subscription} } = supabase.auth.onAuthStateChange((_event, session) => {
