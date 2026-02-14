@@ -4,15 +4,22 @@ export function Permit({email, isEditor}) {
         backgroundColor: 'antiquewhite',
         border: '3px solid orange',
         fontFamily: 'Verdana, Geneva, Tahoma, sans-serif',
-        color: 'black'
+        color: 'black',
+        padding: '7px',
+        display: 'flex',
+        gap: '12px',
+        justifyContent: 'center',
+        alignItems: 'center'
     };
+
+    const buttonStyle = {
+        backgroundColor: "grey" //default, viewer
+    }
 
     return (
     <div style = {permitStyle}>
-        <span>
-            <p className ="title">{email}</p>
-            <button>{isEditor}</button>
-        </span>
+        <span className ="title">{email}</span>
+        <button style={buttonStyle}>{isEditor}</button>
     </div>
     );
 }

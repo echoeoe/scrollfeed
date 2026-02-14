@@ -7,9 +7,8 @@ export function Admin(){
   return(
     <>
     <h1>Manage Permissions</h1>
-    <h2>Email, Editor?</h2>
-    <Permit email="sampleEmail@gmail.com" isEditor="False"/>
-    <Permit email="sampleEmail@gmail.com" isEditor="False"/>
+    <Permit email="sampleEmail@gmail.com" isEditor="Viewer"/>
+    <Permit email="sampleEmail@gmail.com" isEditor="Editor"/>
     </>
   );
 }
