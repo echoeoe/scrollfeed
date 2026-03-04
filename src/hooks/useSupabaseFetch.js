@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 
-export function useSupabaseFetch(tableName){ //custom hook 
+export function useSupabaseFetch(tableName, selectQuery = "*"){ //custom hook 
 
   //state variables: data from table, loading boolean, error
   const [data, setData] = useState(null);
@@ -18,7 +18,7 @@ export function useSupabaseFetch(tableName){ //custom hook
       setError(null);
 
       //build query 
-      let query = supabase.from('posts').select();
+      let query = supabase.from(tableName).select(selectQuery);
 
       // try catch around fetch 
       try {
@@ -40,7 +40,7 @@ export function useSupabaseFetch(tableName){ //custom hook
 
     fetchData(); 
 
-  }, [tableName]); //useEffect dependencies  
+  }, [tableName, selectQuery]); //useEffect dependencies  
 
   return {data, loading, error};
 }

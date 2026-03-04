@@ -2,7 +2,8 @@ import { Permit } from '../components/Permit';
 
 export function Admin(){
   
-  //fetch email, isEditor
+  //fetch email (auth.users), role (public.profiles)
+  
 
   const btnStyle = {
     border: "3px solid orange",
